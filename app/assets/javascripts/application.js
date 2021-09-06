@@ -10,7 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+$(function(){
+  $('.js-modal-open').each(function(){
+    $(this).on('click',function(){
+      var target = $(this).data('target');
+      var modal = document.getElementById(target);
+      $(modal).fadeIn();
+      return false;
+    });
+  });
+  $('.js-modal-close').on('click',function(){
+    $('.js-modal').fadeOut();
+    return false;
+  });
+});
