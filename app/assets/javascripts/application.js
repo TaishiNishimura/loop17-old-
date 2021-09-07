@@ -124,3 +124,12 @@ window.onload = function() {
     }
     init();
 }
+
+//ハンバーガーメニュー
+$(function() {
+    $('.hamburger').on('click',function(event) {
+        $(this).toggleClass('active');
+        $('#sp-menu').fadeToggle();
+        event.preventDefault();
+    });
+});
