@@ -127,9 +127,10 @@ window.onload = function() {
 
 //ハンバーガーメニュー
 $(function() {
-    $('.hamburger').on('click',function(event) {
+    $('#hamburger').on('click',function(event) {
+        $('#hamburger').hide();
         $(this).toggleClass('active');
-        $('#sp-menu').fadeToggle();
+        $('#sp-hamburger').fadeToggle(1000);
         event.preventDefault();
     });
 });

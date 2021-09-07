@@ -15,7 +15,6 @@ html,body {
     position: relative;
 }
 #canvas-txt {
-    font-size: 40px;
     display: flex;
     position: fixed;
     left: 20px;
@@ -27,6 +26,7 @@ html,body {
 }
 @supports (-webkit-background-clip: text) {
   #canvas-txt p {
+    font-size: 40px;
     background: -webkit-linear-gradient(left, #ba65fd, #5aa5f8, #00d8ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,18 +34,18 @@ html,body {
 }
 
 //ハンバーガーメニュー
-.hamburger-menu {
+#hamburger-menu {
   position: fixed;
   right: 20px;
   top: 20px;
   z-index: 10;
 }
-.hamburger {
+#hamburger {
   position: relative;
   width: 100px;
   height: 100px;
 }
-.hamburger::after {
+#hamburger::after {
   border-radius: 40%;
   content: "";
   display: block;
@@ -59,9 +59,9 @@ html,body {
   );
   animation: color-fade 3s infinite linear;
 }
-.circle1,
-.circle2,
-.circle3 {
+#circle1,
+#circle2,
+#circle3 {
   opacity: 0.4;
   position: absolute;
   background: #0af;
@@ -71,15 +71,15 @@ html,body {
   border-radius: 40%;
   animation: rotation 3s infinite linear;
 }
-.circle2 {
+#circle2 {
   opacity: 0.2;
   background: #ff0;
   animation: rotation 5s infinite linear;
 }
-.circle3 {
+#circle3 {
   animation: rotation 2.5s infinite linear;
 }
-.hamburger-title {
+#hamburger-title {
   position: absolute;
   top: 33px;
   width: 100%;
@@ -126,24 +126,97 @@ html,body {
 }
 
 //SPメニュー
-#sp-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #000;
-  color: #fff;
-  width: 100%;
-  min-height: 100%;
+#sp-hamburger {
   display: none;
-  z-index: 9;
+  position: relative;
+  width: 400px;
+  height: 400px;
 }
-#sp-menu li {
+#sp-hamburger::after {
+  border-radius: 40%;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(
+    to bottom,
+    #ee88aa,
+    rgba(250, 238, 255, 0.3) 90%,
+    rgba(250, 238, 255, 0.5)
+  );
+  animation: color-fade 3s infinite linear;
+}
+#sp-circle1,
+#sp-circle2,
+#sp-circle3 {
+  opacity: 0.4;
+  position: absolute;
+  background: #0af;
+  width: 400px;
+  height: 400px;
+  transform-origin: 50% 47%;
+  border-radius: 40%;
+  animation: rotation 3s infinite linear;
+}
+#sp-circle2 {
+  opacity: 0.2;
+  background: #ff0;
+  animation: rotation 5s infinite linear;
+}
+#sp-circle3 {
+  animation: rotation 2.5s infinite linear;
+}
+#sp-hamburger-title {
+  position: absolute;
+  top: 23px;
+  width: 100%;
+  z-index: 1;
+  color: #fff;
   text-align: center;
-  margin-bottom: 30px;
+  font-size: 0.7rem;
+  line-height: 2rem;
+  letter-spacing: 0.15em;
+  animation: text-fade 300ms infinite linear;
 }
-#sp-menu a {
+#sp-hamburger-title li {
+  text-align: center;
+  margin: 30px;
+}
+#sp-hamburger-title a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  animation: text-fade 300ms infinite linear;
+}
+/* 回転アニメーション */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ピンク色の背景のアニメーション */
+@keyframes color-fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+/* 点滅のアニメーション */
+@keyframes text-fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.6;
+  }
 }
